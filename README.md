@@ -3,9 +3,9 @@ This adds vagrant provisioning files for setting up a jenkins server for doing r
 
 # What it does
 
-# What it does not (aka "future work")
+# What it doesn't (aka "future work")
 
-# Nice references that saved me a lot of time
+# Nice references on the topic
 
 * http://jenkins-ci.361315.n4.nabble.com/Installing-Jenkins-plugins-via-API-td4639021.html
 * http://serverfault.com/questions/321167/add-correct-host-key-in-known-hosts-multiple-ssh-host-keys-per-hostnam
