@@ -14,6 +14,12 @@ Host bitbucket-deploy
    User              git
    IdentityFile      $REPO_IDENTITYFILE
    IdentitiesOnly    yes
+
+Host heroku-deploy
+   Hostname          $HEROKU_HOSTNAME
+   User              git
+   IdentityFile      $HEROKU_IDENTITYFILE
+   IdentitiesOnly    yes
 EOF
 fi
 
