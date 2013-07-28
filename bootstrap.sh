@@ -2,16 +2,20 @@
 
 if [ -d /vagrant/config/all.sh ]
     then # we are in a vagrant environment
+    echo "vagrant environment!"
     source /vagrant/config/all.sh
     else # we are in a "regular" environment
+    echo "non-vagrant environment!"
     source ./config/all.sh
 fi
 
 function display_task {
-    echo
+    lightblue='\e[1;36m'
+    nocolor=\e[0m'
+    echo -e "${lightblue}"
     echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     echo ">>>>>> $1 ..........."
-    echo
+    echo -e "${nocolor}"
 }
 
 # -----------------------------------------------------
