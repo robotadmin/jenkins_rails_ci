@@ -3,12 +3,12 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/../config/all.sh
 
-git config --global user.email $GIT_EMAIL
-git config --global user.name $GIT_USERNAME
+sudo su jenkins -c git config --global user.email $GIT_EMAIL
+sudo su jenkins -c git config --global user.name $GIT_USERNAME
 
 if [ -z "$(grep $REPO_HOSTNAME ~jenkins/.ssh/config)" ]
 then
-su jenkins -c cat <<EOF >> ~jenkins/.ssh/config
+sudo su jenkins -c cat <<EOF >> ~jenkins/.ssh/config
 Host bitbucket-deploy
    Hostname          $REPO_HOSTNAME
    User              git

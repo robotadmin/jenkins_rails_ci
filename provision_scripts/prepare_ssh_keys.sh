@@ -16,6 +16,7 @@ done
 sudo chown -R jenkins ~jenkins/.ssh
 sudo chmod 600 ~jenkins/.ssh/*
 
+sudo su jenkins -c touch ~jenkins/.ssh/known_hosts
 if [ -z "$(grep bitbucket ~jenkins/.ssh/known_hosts)" ]
 then
     sudo su jenkins -c "ssh-keyscan -t rsa bitbucket.org >> ~jenkins/.ssh/known_hosts"
