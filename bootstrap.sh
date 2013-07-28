@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-source /vagrant/config/all.sh
+if [ -d /vagrant/config/all.sh ]
+    then # we are in a vagrant environment
+    source /vagrant/config/all.sh
+    else # we are in a "regular" environment
+    source ./config/all.sh
+fi
 
 function display_task {
     echo
