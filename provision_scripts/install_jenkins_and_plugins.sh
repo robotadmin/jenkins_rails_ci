@@ -13,7 +13,8 @@ sudo_cmd apt-get update
 sudo_cmd apt-get install -y jenkins
 sudo_cmd usermod -a -G shadow jenkins
 
-if [ -d $JENKINS_BACKUP ] then
+if [ -d $JENKINS_BACKUP ]
+then
     echo "copying jenkins backup from $JENKINS_BACKUP..."
     sudo_cmd cp -r $JENKINS_BACKUP/* ~jenkins/
 fi
