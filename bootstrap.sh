@@ -26,7 +26,7 @@ source $PROVISION_SCRIPTS/install_jenkins_and_plugins.sh
 
 # -----------------------------------------------------
 display_task "installing heroku toolbelt"
-wget  2> /dev/null --quiet -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+sudo wget  2> /dev/null --quiet -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 # -----------------------------------------------------
 display_task "installing project dependencies"
@@ -42,9 +42,9 @@ source $PROVISION_SCRIPTS/prepare_ssh_keys.sh
 
 # -----------------------------------------------------
 display_task "preparing git identity"
-su jenkins -c "source $PROVISION_SCRIPTS/prepare_git_identity.sh"
+sudo su jenkins -c "source $PROVISION_SCRIPTS/prepare_git_identity.sh"
 
 # -----------------------------------------------------
 display_task "copying continuous integration scripts for jenkins"
-cp -r $CI_SCRIPTS ~jenkins
-chown jenkins ~jenkins/ci_scripts
+sudo cp -r $CI_SCRIPTS ~jenkins
+sudo chown jenkins ~jenkins/ci_scripts
