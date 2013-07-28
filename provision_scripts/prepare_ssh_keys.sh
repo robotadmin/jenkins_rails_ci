@@ -22,7 +22,7 @@ then
     sudo su jenkins -c "ssh-keyscan -t rsa bitbucket.org >> ~jenkins/.ssh/known_hosts"
 fi
 
-if [ -z "$(grep heroku ~jenkins/.ssh/known_hosts)" ]
+if [ -z "$(sudo grep heroku ~jenkins/.ssh/known_hosts)" ]
 then
     sudo su jenkins -c "ssh-keyscan -t rsa heroku.com >> ~jenkins/.ssh/known_hosts"
 fi
