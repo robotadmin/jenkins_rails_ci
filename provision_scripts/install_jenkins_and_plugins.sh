@@ -16,7 +16,7 @@ sudo_cmd usermod -a -G shadow jenkins
 if [ -d $JENKINS_BACKUP ]
 then
     echo "copying jenkins backup from $JENKINS_BACKUP..."
-    sudo_cmd cp -r $JENKINS_BACKUP/* ~jenkins/
+    sudo cp -vr $JENKINS_BACKUP/* ~jenkins/
 fi
 
 for PLUGIN in $JENKINS_PLUGINS
