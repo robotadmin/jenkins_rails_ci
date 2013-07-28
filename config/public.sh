@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-ROOT_DIR=$(( [ -d /vagrant ] ? /vagrant : . ))
+if [ -d /vagrant ]
+then
+ROOT_DIR=/vagrant
+else
+ROOT_DIR=.
+fi
+
 SECRET_KEYS_DIR=$ROOT_DIR/secret_keys
 PUB_KEYS_DIR=$ROOT_DIR/pub_keys
 PROVISION_SCRIPTS=$ROOT_DIR/provision_scripts
