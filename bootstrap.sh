@@ -9,24 +9,16 @@ if [ -d /vagrant/config/all.sh ]
     source ./config/all.sh
 fi
 
-function display_task {
-    lightblue='\e[1;36m'
-    nocolor='\e[0m'
-    echo -e "${lightblue}"
-    echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    echo ">>>>>> $1 ..........."
-    echo -e "${nocolor}"
-}
 
 # -----------------------------------------------------
 display_task "running aptitude update"
-sudo apt-get update
+sudo_cmd apt-get update
 
 # -----------------------------------------------------
 PREREQUISITES="git-core curl wget"
 display_task "installing $PREREQUISITES"
 for pckg in $PREREQUISITES
-  do sudo apt-get install -y $pckg
+  do sudo_cmd apt-get install -y $pckg
 done
 
 # -----------------------------------------------------
@@ -35,7 +27,7 @@ source $PROVISION_SCRIPTS/install_jenkins_and_plugins.sh
 
 # -----------------------------------------------------
 display_task "installing heroku toolbelt"
-sudo wget  2> /dev/null --quiet -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+sudo_cmd wget  2> /dev/null --quiet -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 # -----------------------------------------------------
 display_task "installing project dependencies"
@@ -51,9 +43,9 @@ source $PROVISION_SCRIPTS/prepare_ssh_keys.sh
 
 # -----------------------------------------------------
 display_task "preparing git identity"
-sudo su jenkins -c "source $PROVISION_SCRIPTS/prepare_git_identity.sh"
+source $PROVISION_SCRIPTS/prepare_git_identity.sh
 
 # -----------------------------------------------------
 display_task "copying continuous integration scripts for jenkins"
-sudo cp -r $CI_SCRIPTS ~jenkins
-sudo chown jenkins ~jenkins/ci_scripts
+sudo_cmd cp -r $CI_SCRIPTS ~jenkins
+sudo_cmd chown jenkins ~jenkins/ci_scripts
