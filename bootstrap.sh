@@ -27,7 +27,7 @@ source $PROVISION_SCRIPTS/install_jenkins_and_plugins.sh
 
 # -----------------------------------------------------
 display_task "installing heroku toolbelt"
-sudo_cmd wget  2> /dev/null --quiet -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+sudo wget  2> /dev/null --quiet -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 # -----------------------------------------------------
 display_task "installing project dependencies"
