@@ -5,7 +5,7 @@ then
 ROOT_DIR=/vagrant
 else
 ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-ROOT_DIR= ${ROOT_DIR%/*}
+ROOT_DIR=`echo ${ROOT_DIR%/*}`
 fi
 
 SECRET_KEYS_DIR=$ROOT_DIR/secret_keys
@@ -28,6 +28,6 @@ function display_task {
 function sudo_cmd {
     green='\e[0;32m'
     nocolor='\e[0m'
-    echo -e "${green}[$(date)] $1 ${nocolor}"
-    sudo $1
+    echo -e "${green}[$(date)] sudo $@ ${nocolor}"
+    sudo $@
 }
