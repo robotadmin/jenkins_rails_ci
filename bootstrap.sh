@@ -11,7 +11,7 @@ fi
 
 function display_task {
     lightblue='\e[1;36m'
-    nocolor=\e[0m'
+    nocolor='\e[0m'
     echo -e "${lightblue}"
     echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     echo ">>>>>> $1 ..........."
