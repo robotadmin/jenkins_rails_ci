@@ -16,9 +16,7 @@ sudo_cmd usermod -a -G shadow jenkins
 if [ -d $JENKINS_BACKUP ]
 then
     echo "copying jenkins backup from $JENKINS_BACKUP..."
-    sudo cd $JENKINS_BACKUP
-    sudo cp -vr *.xml *.key jobs/ plugins/ updates/ userContent/ users/ ~jenkins/
-    sudo cd $OLDPWD
+    sudo cp -r $JENKINS_BACKUP/* ~jenkins
 fi
 
 for PLUGIN in $JENKINS_PLUGINS
