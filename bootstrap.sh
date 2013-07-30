@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-if [ -d /vagrant/config/all.sh ]
+if `id vagrant`
     then # we are in a vagrant environment
     echo "vagrant environment!"
     source /vagrant/config/all.sh
-    else # we are in a "regular" environment
+else # we are in a "regular" environment
     echo "non-vagrant environment!"
     source ./config/all.sh
 fi
