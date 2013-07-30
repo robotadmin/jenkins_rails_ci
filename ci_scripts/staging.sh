@@ -8,5 +8,3 @@ install_gems
 cleanup
 run_tests
 run_metrics
-
-rake deploy:staging
